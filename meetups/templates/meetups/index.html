@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Meetups</title>
+    <link rel="stylesheet" href="{% static 'meetups/styles/base.css' %}">
+</head>
+<body>
+    <header>
+        <nav><a href="/meetups">DjangoMeetups</a> </nav>
+        <h1>Got gr8 meetups coming soon</h1>
+        <p>Find the best 4 u</p>
+    </header>
+    <main>
+        <section>
+            <h2>Upcoming Meetups</h2>
+            <ol>
+                {% for meetup_item in meetups %}
+                <li class="meetup-item">
+                <article>
+                    <div class="meetup-summary">
+                        <div class="meetup-image">
+                            <img src="" alt="">
+                        </div>
+                        <div class="meetup-details">
+                            <h3>{{ meetup_item.title }}</h3>
+                            <address>{{ meetup_item.location }}</address>
+                        </div>
+                    </div>
+                    <div class="meetup-actions">
+                        <a href="" class="btn">More details</a>
+                    </div>
+                </article>
+                </li>
+                {% endfor %}
+            </ol>
+        </section>
+    </main>
+</body>
+</html>
