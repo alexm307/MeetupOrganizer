@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <title>All Meetups</title>
     <link rel="stylesheet" href="{% static 'meetups/styles/base.css' %}">
+    <link rel="stylesheet" href="{% static 'meetups/styles/all-meetups.css' %}">
 </head>
 <body>
-    <header>
-        <nav><a href="/meetups">DjangoMeetups</a> </nav>
+    <header id="main-header">
+        <nav><a href="/meetups" id="main-logo">DjangoMeetups</a> </nav>
         <h1>Got gr8 meetups coming soon</h1>
         <p>Find the best 4 u</p>
     </header>
@@ -18,20 +19,20 @@
             <ol>
                 {% for meetup_item in meetups %}
                 <li class="meetup-item">
-                <article>
-                    <div class="meetup-summary">
-                        <div class="meetup-image">
-                            <img src="" alt="">
+                    <article>
+                        <div class="meetup-summary">
+                            <div class="meetup-image">
+                                <img src="" alt="">
+                            </div>
+                            <div class="meetup-details">
+                                <h3>{{ meetup_item.title }}</h3>
+                                <address>{{ meetup_item.location }}</address>
+                            </div>
                         </div>
-                        <div class="meetup-details">
-                            <h3>{{ meetup_item.title }}</h3>
-                            <address>{{ meetup_item.location }}</address>
+                        <div class="meetup-actions">
+                            <a href="{% url 'meetup-details' meetup_item.slug %}" class="btn">More details</a>
                         </div>
-                    </div>
-                    <div class="meetup-actions">
-                        <a href="" class="btn">More details</a>
-                    </div>
-                </article>
+                    </article>
                 </li>
                 {% endfor %}
             </ol>
